@@ -1,6 +1,7 @@
 import spiceypy as spice
 import datetime as dt
 import math as math
+import numpy as np
 
 date_today = dt.dt.today()
 date_today = date_today.strftime("%Y-%m-%dT00:00:00")
@@ -19,3 +20,6 @@ earth_sun_distance = math.sqrt(earth_state_wrt_sun[0] ** 2.0
                                + earth_state_wrt_sun[2] ** 2.0)
 
 earth_sun_distance_au = spice.convrt(earth_sun_distance, "km", "au")
+
+earth_state_wrt_sun = np.array(earth_state_wrt_sun)
+earth_sun_distance = np.linage.norm(earth_state_wrt_sun[:3])
